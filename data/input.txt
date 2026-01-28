@@ -1,0 +1,938 @@
+HỆ THỐNG QUẢN LÝ - TÀI LIỆU NGHIỆP VỤ HOÀN CHỈNH
+
+========================================
+PHẦN 1: QUẢN LÝ NGƯỜI DÙNG
+========================================
+
+1. MỤC ĐÍCH
+Cho phép người dùng quản lý và khai báo danh sách phân nhóm cán bộ thuộc Trung tâm định giá tài sản.
+
+2. CHỨC NĂNG CHÍNH
+
+2.1. Tìm kiếm người dùng
+- Tìm kiếm theo tên cán bộ, mã cán bộ hoặc email
+- Có thể nhập một phần để hệ thống gợi ý
+- Lọc theo đơn vị: TSC (Trụ sở chính) hoặc Chi nhánh
+- Lọc theo phòng ban
+- Tìm kiếm nâng cao theo phân nhóm hoặc vai trò
+- Nhấn Enter hoặc nút Tìm kiếm để thực hiện truy vấn
+
+2.2. Hiển thị kết quả
+Bảng dữ liệu kết quả hiển thị các cột:
+- STT: Số thứ tự
+- Mã cán bộ: Mã định danh duy nhất
+- Tên cán bộ: Họ và tên đầy đủ
+- Email: Email liên hệ (định dạng hợp lệ)
+- Số điện thoại: Số liên lạc
+- Đơn vị: Đơn vị công tác (hiển thị: mã đơn vị - tên đơn vị)
+- Phòng/Nhóm/Tổ: Nếu thuộc nhiều nhóm hiển thị: Nhóm 1, Nhóm 2
+- Vai trò: Vai trò trong đơn vị
+- Cấp bậc lương: Cấp bậc hiện tại
+
+Hỗ trợ phân trang, chọn 1 dòng để thao tác chi tiết.
+
+2.3. Xuất dữ liệu Excel
+- Người dùng có thể xuất toàn bộ dữ liệu tìm kiếm ra file Excel
+- File xuất giữ nguyên cấu trúc bảng dữ liệu hiển thị
+
+2.4. Phân nhóm người dùng
+- Người dùng có thể tích chọn nhiều user để phân nhóm
+- Người dùng có thể chọn 1 user để phân vào 1 hoặc nhiều nhóm
+
+3. PHÂN QUYỀN
+- Chỉ Admin hệ thống mới có quyền truy cập chức năng này
+- Người dùng phải được phân quyền chức năng trước khi sử dụng
+
+4. LUỒNG THỰC HIỆN
+
+Bước 1: Khởi tạo màn hình
+- Từ menu, chọn chức năng "Quản lý người dùng"
+- Hệ thống hiển thị giao diện tìm kiếm và danh sách người dùng
+
+Bước 2: Nhập tiêu chí tìm kiếm
+Người dùng có thể nhập một hoặc nhiều tiêu chí:
+- Tên cán bộ hoặc Mã cán bộ
+- Đơn vị (droplist)
+- Phòng ban (droplist)
+- Phân nhóm (droplist)
+
+Bước 3: Thực hiện tìm kiếm
+- Nhấn Enter hoặc bấm nút tìm kiếm
+- Hệ thống lọc và hiển thị danh sách cán bộ theo điều kiện
+- Nếu không nhập điều kiện → hiển thị toàn bộ danh sách
+
+Bước 4: Hiển thị kết quả
+Hệ thống trả về bảng Danh sách người dùng với đầy đủ thông tin
+
+Bước 5: Xuất dữ liệu
+Người dùng có thể bấm nút Xuất Excel để tải về danh sách kết quả tìm kiếm
+
+5. RULE NGHIỆP VỤ
+
+5.1. Tìm kiếm
+- Cho phép tìm theo nhiều tiêu chí đồng thời
+- Nếu không nhập tiêu chí → hiển thị tất cả cán bộ
+- Hệ thống hỗ trợ tìm kiếm nhanh: nhập tên gần đúng, một phần email
+
+5.2. Quản lý dữ liệu
+- Mã cán bộ là duy nhất trong toàn hệ thống
+- Email phải theo định dạng hợp lệ
+- Mỗi cán bộ có thể thuộc về một hoặc nhiều nhóm
+
+5.3. Xuất Excel
+- File xuất phải giữ nguyên cấu trúc bảng dữ liệu hiển thị
+
+========================================
+PHẦN 2: DANH MỤC NHÓM ĐỊNH GIÁ
+========================================
+
+1. MỤC ĐÍCH
+Cho phép người dùng quản lý danh mục nhóm định giá trong hệ thống.
+
+2. CHỨC NĂNG CHÍNH
+
+2.1. Tìm kiếm nhóm định giá
+- Ô tìm kiếm cho phép nhập từ khóa: Mã hoặc Tên nhóm định giá
+- Nhấn Enter hoặc biểu tượng tìm kiếm để lọc dữ liệu
+- Nếu để trống → hiển thị toàn bộ danh sách
+
+2.2. Hiển thị danh sách
+Bảng hiển thị các cột:
+- STT: Số thứ tự bản ghi
+- Trung tâm định giá: Nhóm thuộc trung tâm nào
+- Mã đơn vị: Nhóm thuộc đơn vị nào
+- Mã nhóm định giá: Mã định danh duy nhất
+- Tên nhóm định giá: Tên nhóm (ví dụ: Hà Nội 1, Hà Nội 2)
+- Trạng thái: Hiệu lực hoặc Hết hiệu lực (mặc định = Hiệu lực)
+- Ghi chú: Thông tin bổ sung
+- Điều kiện tự động chuyển hồ sơ: Điều kiện đang gán
+
+2.3. Thêm mới nhóm định giá
+- Người dùng nhấn nút "Thêm mới"
+- Hệ thống mở màn hình nhập thông tin chi tiết
+
+2.4. Chỉnh sửa nhóm định giá
+- Click biểu tượng Edit để chỉnh sửa nhóm định giá tương ứng
+
+2.5. Xóa nhóm định giá
+- Click biểu tượng Delete để xóa nhóm
+- Kiểm tra: Nếu có quy trình định giá đang xử lý tại nhóm → không cho xóa
+- Hiển thị thông báo: "Có hồ sơ đang xử lý ở nhóm định giá nên không thể xoá nhóm, vui lòng kiểm tra lại"
+
+3. THÊM MỚI/CHỈNH SỬA NHÓM ĐỊNH GIÁ
+
+3.1. Thông tin cơ bản (tất cả bắt buộc)
+
+Trung tâm định giá:
+- Là trung tâm định giá mà nhóm thuộc về
+- Droplist hiển thị danh sách tham số trung tâm định giá có trạng thái = Hiệu lực
+- Thông tin hiển thị: Mã đơn vị - Tên trung tâm định giá
+
+Mã nhóm định giá:
+- Mã định danh duy nhất cho nhóm
+- Không được trùng lặp với các bản ghi khác
+- Bắt buộc nhập
+
+Tên nhóm định giá:
+- Tên nhóm định giá cần thêm mới
+- Bắt buộc nhập
+- Tối đa 255 ký tự
+
+Ghi chú:
+- Không bắt buộc
+- Cho phép nhập ghi chú cho nhóm định giá
+
+3.2. Điều kiện tự động chuyển hồ sơ (bắt buộc)
+
+Mặc định không hiển thị bảng ban đầu.
+
+Button "Thêm điều kiện":
+- Click sẽ hiển thị danh sách điều kiện
+- Người dùng chọn để gán cho nhóm định giá
+- Cho phép chọn nhiều điều kiện
+
+Sau khi thêm điều kiện, hiển thị bảng gồm các cột:
+- STT: Số thứ tự điều kiện được chọn
+- Mã điều kiện: Mã định danh của điều kiện
+- Tên điều kiện: Tên điều kiện
+- Chi tiết điều kiện: Mô tả chi tiết
+- Delete: Nút xóa để xóa điều kiện gán với nhóm
+
+3.3. Thành viên nhóm (bắt buộc)
+
+Mặc định hiển thị bảng trống khi chưa có thành viên nào.
+
+Bảng gồm các cột:
+- STT: Số thứ tự thành viên
+- Mã nhân viên: Mã nhân viên
+- Họ tên: Họ và tên của nhân viên
+- Vai trò: Role của thành viên nhóm (trưởng nhóm, cán bộ khảo sát, cán bộ định giá)
+- Thông tin liên hệ: Email, số điện thoại
+- Delete: Nút xóa để xóa thành viên khỏi nhóm
+
+Button "Thêm thành viên":
+- Click sẽ hiển thị danh sách nhân viên
+- Người dùng chọn vào nhóm định giá
+- Cho phép chọn nhiều nhân viên
+
+4. LUỒNG THỰC HIỆN
+
+Bước 1: Khởi tạo màn hình
+- Truy cập menu "Quản trị hệ thống → Quản lý nhóm định giá → Danh mục nhóm định giá"
+- Hệ thống hiển thị danh sách các nhóm định giá
+
+Bước 2: Tìm kiếm dữ liệu
+- Nhập từ khóa (mã hoặc tên nhóm định giá) vào ô tìm kiếm
+- Nhấn Enter hoặc biểu tượng tìm kiếm
+- Hệ thống lọc và hiển thị danh sách phù hợp
+- Nếu để trống → hiển thị toàn bộ
+
+Bước 3: Thêm mới nhóm định giá
+- Nhấn nút "Thêm mới"
+- Nhập thông tin cơ bản:
+  * Chọn Trung tâm định giá (bắt buộc)
+  * Nhập Mã nhóm định giá (bắt buộc, duy nhất)
+  * Nhập Tên nhóm định giá (bắt buộc)
+  * Nhập Ghi chú (không bắt buộc)
+
+- Chọn Điều kiện (bắt buộc):
+  * Click "Thêm điều kiện"
+  * Chọn điều kiện từ danh sách
+  * Điều kiện sẽ hiển thị trong bảng
+
+- Chọn Thành viên (bắt buộc):
+  * Click "Thêm thành viên"
+  * Chọn nhân viên từ danh sách
+  * Thành viên sẽ hiển thị trong bảng
+
+- Chọn Trạng thái: Mặc định = Hiệu lực, có thể đổi sang Hết hiệu lực
+
+Bước 4: Lưu hoặc hủy tác vụ
+- Nhấn "Lưu":
+  * Hệ thống kiểm tra điều kiện bắt buộc (Trung tâm định giá, Mã, Tên, Điều kiện, Thành viên)
+  * Nếu hợp lệ → lưu dữ liệu mới vào database
+  * Nếu lỗi (trùng mã, thiếu thông tin) → hiển thị thông báo điều chỉnh
+
+- Nhấn "Hủy": 
+  * Quay lại màn hình danh sách Nhóm định giá
+  * Không lưu thông tin
+
+5. RULE NGHIỆP VỤ
+
+5.1. Tìm kiếm
+- Cho phép tìm kiếm gần đúng theo tên hoặc mã nhóm định giá
+- Không phân biệt chữ hoa/thường
+- Nếu không nhập tiêu chí → hiển thị toàn bộ dữ liệu
+
+5.2. Dữ liệu hiển thị
+- Trung tâm định giá: Bắt buộc, liên kết với danh mục trung tâm định giá đã có
+- Mã đơn vị: Bắt buộc, liên kết với danh mục Chi nhánh đã có
+- Mã nhóm định giá: Duy nhất, không được trùng lặp
+- Tên nhóm định giá: Bắt buộc, tối đa 255 ký tự
+- Điều kiện tự động chuyển hồ sơ: Bắt buộc, liên kết với danh mục Điều kiện đã có
+- Thành viên: Bắt buộc, phải thuộc danh mục người sử dụng đã tồn tại
+
+5.3. Kiểm tra khi lưu
+- Hệ thống kiểm tra trùng mã nhóm định giá
+- Nếu phát hiện trùng → cảnh báo, không cho lưu
+
+5.4. Quản lý trạng thái
+- Nếu Trạng thái = Hết hiệu lực → nhóm định giá này không được phép phân giao Đề nghị định giá
+- Dữ liệu đã tồn tại vẫn phục vụ tra cứu, báo cáo
+
+5.5. Bảo mật và phân quyền
+- Chỉ người dùng có quyền "Quản trị hệ thống" mới được phép truy cập và thêm mới
+
+========================================
+PHẦN 3: QUẢN LÝ ĐƯỜNG/PHỐ
+========================================
+
+1. MỤC ĐÍCH
+Cho phép người dùng quản lý danh mục địa lý, cụ thể là danh mục Đường/Phố.
+
+2. CÁC TAB DANH MỤC
+Hệ thống có các tab:
+- Tỉnh/Thành phố
+- Quận/Huyện
+- Phường/Xã
+- Đường/Phố (tab hiện tại)
+- Đoạn/Đường
+
+3. CHỨC NĂNG CHÍNH
+
+3.1. Tìm kiếm đường/phố
+- Ô tìm kiếm cho phép nhập từ khóa: Mã hoặc Tên đường/phố
+- Có thể nhập: Tỉnh/TP, Quận/Huyện, Phường/Xã, Đường
+- Nhấn Enter hoặc biểu tượng tìm kiếm để lọc dữ liệu
+- Nếu để trống ô tìm kiếm → hệ thống hiển thị toàn bộ danh sách
+
+3.2. Hiển thị danh sách
+Bảng hiển thị danh sách các đường/phố với các cột:
+- STT: Số thứ tự bản ghi trong danh sách
+- Mã Đường/Phố: Mã định danh duy nhất của đường/phố
+- Tên Đường/Phố: Tên đường hoặc phố (ví dụ: đường Bà Triệu)
+- Tỉnh/TP: Tỉnh/Thành phố mà đường/phố trực thuộc
+- Quận/Huyện: Quận/Huyện mà đường/phố trực thuộc
+- Phường/Xã: Phường/Xã mà đường/phố trực thuộc
+- Trạng thái: Hiệu lực hoặc Hết hiệu lực (mặc định = Hiệu lực)
+
+3.3. Các nút chức năng
+- Nút Thêm mới: Cho phép thêm mới một đường/phố vào danh mục
+- Nút Xuất Excel: Cho phép xuất danh sách đường/phố ra file Excel
+- Nút Tải file theo lô: Cho phép nhập file Excel theo lô
+
+4. THÊM MỚI/CHỈNH SỬA ĐƯỜNG PHỐ
+
+4.1. Thông tin cơ bản
+
+Loại:
+- Droplist (chọn sẵn)
+- Xác định loại dữ liệu là "Đường phố"
+
+Mã đường phố:
+- Textbox nhập
+- Mã định danh duy nhất cho đường phố
+- Không được trùng lặp
+- Bắt buộc nhập
+
+Tên đường phố:
+- Textbox nhập
+- Tên đường/phố cần thêm mới
+- Bắt buộc nhập
+
+Tỉnh/Thành phố:
+- Droplist chọn
+- Xác định đường/phố thuộc tỉnh/TP nào
+- Không bắt buộc
+
+Quận/Huyện:
+- Droplist chọn
+- Xác định đường/phố thuộc quận/huyện nào
+- Không bắt buộc
+
+Phường/Xã:
+- Droplist chọn
+- Xác định đường/phố thuộc phường/xã nào
+- Không bắt buộc
+
+Trạng thái:
+- Droplist chọn
+- Giá trị mặc định = Hiệu lực
+- Có thể thay đổi sang Hết hiệu lực
+- Bắt buộc
+
+Mô tả:
+- Textarea nhập
+- Cho phép nhập mô tả chi tiết về đường/phố
+- Không bắt buộc
+
+4.2. Các nút thao tác
+- Nút Lưu: Lưu dữ liệu đường/phố mới vào hệ thống (sau khi kiểm tra hợp lệ)
+- Nút Hủy: Hủy thao tác, quay lại màn hình danh sách Đường/Phố
+
+5. LUỒNG THỰC HIỆN
+
+Bước 1: Khởi tạo màn hình
+- Người dùng truy cập menu "Quản trị tham số → Danh mục địa lý → Đường/Phố"
+- Hệ thống hiển thị mặc định danh sách các Đường/Phố
+
+Bước 2: Tìm kiếm dữ liệu
+- Người dùng nhập từ khóa (mã hoặc tên đường/phố) vào ô tìm kiếm
+- Nhấn Enter hoặc biểu tượng tìm kiếm
+- Hệ thống lọc và hiển thị danh sách đường/phố phù hợp
+- Nếu để trống ô tìm kiếm → hệ thống hiển thị toàn bộ danh sách
+
+Bước 3: Chuyển đổi danh mục
+- Người dùng có thể chọn tab khác như: Tỉnh/Thành phố, Quận/Huyện, Phường/Xã, Đoạn/Đường
+- Hệ thống tải và hiển thị dữ liệu tương ứng
+
+Bước 4: Thêm mới đường/phố
+- Người dùng nhấn nút "Thêm mới"
+- Hệ thống hiển thị màn hình nhập thông tin chi tiết "Thêm mới Đường phố"
+- Nhập thông tin:
+  * Chọn Loại = Đường phố (mặc định)
+  * Nhập Mã đường phố (bắt buộc, duy nhất)
+  * Nhập Tên đường phố (bắt buộc)
+  * Chọn Tỉnh/TP (không bắt buộc)
+  * Chọn Quận/Huyện (không bắt buộc)
+  * Chọn Phường/Xã (không bắt buộc)
+  * Chọn Trạng thái: mặc định = Hiệu lực
+  * Nhập Mô tả (nếu có)
+
+Bước 5: Lưu hoặc hủy tác vụ
+- Nhấn "Lưu":
+  * Hệ thống kiểm tra điều kiện bắt buộc (Mã, Tên)
+  * Nếu hợp lệ → lưu dữ liệu mới vào database
+  * Nếu lỗi (ví dụ: trùng mã, thiếu thông tin bắt buộc) → hiển thị thông báo để người dùng điều chỉnh
+
+- Nhấn "Hủy": 
+  * Quay lại màn hình danh sách Đường/Phố
+  * Không lưu thông tin
+
+Bước 6: Xuất dữ liệu
+- Người dùng nhấn nút "Xuất Excel"
+- Hệ thống xuất toàn bộ hoặc dữ liệu đã lọc ra file Excel
+
+6. RULE NGHIỆP VỤ
+
+6.1. Tìm kiếm
+- Cho phép tìm kiếm gần đúng theo tên hoặc mã đường/phố
+- Không phân biệt chữ hoa/thường
+- Nếu không nhập tiêu chí → hiển thị toàn bộ dữ liệu
+
+6.2. Dữ liệu hiển thị
+- Mã Đường/Phố: Duy nhất, không được trùng lặp
+- Tên Đường/Phố: Bắt buộc, tối đa 255 ký tự
+- Quận/Huyện: Bắt buộc, liên kết với danh mục Quận/Huyện đã có trong hệ thống
+
+6.3. Thêm mới
+- Khi thêm mới, hệ thống kiểm tra trùng lặp Mã và Tên trong cùng Quận/Huyện
+- Chỉ cho phép lưu khi tất cả các trường bắt buộc hợp lệ
+
+6.4. Xuất Excel
+- File xuất giữ nguyên cấu trúc bảng trên giao diện
+- Tên file theo định dạng: Danh_muc_DuongPho_ngayxuat.xlsx
+
+6.5. Quản lý trạng thái
+- Nếu Trạng thái = Hết hiệu lực → đường/phố này không được phép gán thêm đoạn đường mới
+- Dữ liệu đã tồn tại vẫn phục vụ tra cứu, báo cáo
+
+6.6. Nhập từ Excel
+Khi nhập từ file Excel:
+- Nhập thành công → báo số lượng bản ghi thành công
+- Nhập thất bại → hệ thống trả file log kết quả báo lỗi để người dùng kiểm tra
+- Kiểm tra ràng buộc: Phường/xã phải thuộc Quận/huyện
+- Bắt buộc tồn tại Tỉnh/TP, Quận/Huyện, Phường/Xã khi nhập lên hệ thống
+- So trùng "không dấu + lowercase + gộp khoảng trắng" trong phạm vi cha
+- Hỗ trợ alias tự động:
+  * TP.HCM ~ TP. Hồ Chí Minh ~ Thành phố Hồ Chí Minh
+  * Q.1 ~ Quận 1
+  * Qua bảng mapping nội bộ
+
+6.7. Bảo mật và phân quyền
+- Chỉ người dùng có quyền "Quản trị danh mục địa lý" mới được phép thêm mới
+- Người dùng thường chỉ có quyền tra cứu
+
+========================================
+PHẦN 4: QUẢN LÝ TRANH CHẤP
+========================================
+
+1. THUẬT NGỮ VIẾT TẮT
+- TSC: Trụ sở chính
+- CN: Chi nhánh
+- CTT: Cuộc tranh chấp
+- KHCN: Khách hàng cá nhân
+- KHDN: Khách hàng doanh nghiệp
+- BPC: Ban Pháp chế
+- TTXLN: Trung tâm Xử lý nợ
+- QLRR: Quản lý rủi ro
+
+2. SƠ ĐỒ TRẠNG THÁI CUỘC TRANH CHẤP
+Tạo mới → Chờ phê duyệt → Đã phê duyệt
+                      ↓
+                Từ chối duyệt → (có thể chỉnh sửa và gửi lại)
+
+3. CHỨC NĂNG CHÍNH
+
+3.1. Xem danh sách cuộc tranh chấp
+Cấu hình hiển thị:
+- Mặc định 20 bản ghi/trang
+- Cho phép thay đổi: 20/50/100 bản ghi/trang
+- Sắp xếp theo updated_dt (ngày cập nhật) mới nhất lên đầu
+- Chỉ cho phép chọn 1 dòng/1 lần thao tác
+- Click nút xem ở từng dòng để mở màn hình chi tiết (chỉ xem, không cho chỉnh sửa)
+
+3.2. Bộ lọc loại tranh chấp
+Cho phép lọc theo các loại:
+- Hình sự
+- Thi hành án
+- Dân sự (mặc định)
+- Khác
+
+3.3. Tìm kiếm cuộc tranh chấp
+Các tiêu chí tìm kiếm:
+
+Tìm theo mã CIF:
+- Nhập tối đa 255 ký tự freetext
+- Check lại validate theo API
+
+Tìm theo thời gian:
+- Từ ngày đến ngày: Hiển thị datepicker
+- Tìm kiếm theo "ngày phát sinh tranh chấp"
+- Truy vấn tối đa 5 năm tính từ ngày hiện tại (5x365 = 1825 ngày)
+- Mặc định: Từ đầu tháng đến hiện tại
+
+Tìm theo chi nhánh:
+- Lấy từ API get danh sách chi nhánh
+- Click để hiển thị list
+- Có ô nhập để tìm kiếm (Frontend)
+
+Nút tìm kiếm:
+- Click để thực hiện tìm kiếm (gọi API)
+
+3.4. Các thao tác với cuộc tranh chấp
+
+A. Xem chi tiết:
+- Click chọn 1 cuộc tranh chấp
+- Click nút "Xem"
+- Hiển thị màn hình chi tiết (chỉ đọc, không cho chỉnh sửa)
+
+B. Chỉnh sửa cuộc tranh chấp:
+Điều kiện cho phép chỉnh sửa:
+- Cuộc tranh chấp có trạng thái: "Tạo mới", "Từ chối duyệt", "Đã phê duyệt"
+- Sau khi lưu chỉnh sửa → cập nhật lại trạng thái = "Tạo mới"
+- Đồng thời lưu lịch sử thay đổi
+
+Chức năng đặc biệt:
+- Khi chỉnh sửa, có nút "Đồng bộ"
+- Ấn đồng bộ → lấy thông tin mới nhất về: Khoản vay, Dư nợ, Tài sản
+- Dữ liệu lấy tại thời điểm ấn nút đồng bộ
+
+C. Chuyển đơn vị phụ trách:
+Luồng thực hiện:
+- Chọn cuộc tranh chấp
+- Click "Chuyển đơn vị phụ trách"
+- Chọn đơn vị phụ trách mới
+- Click Submit
+
+Quy tắc:
+- Mặc định lấy theo đơn vị của User tạo khi đăng nhập
+- Khi thay đổi đơn vị phụ trách → update thông tin "CN xử lý tranh chấp" trong màn hình chi tiết
+- Cho phép chuyển đơn vị ở trạng thái: "Tạo mới", "Đã duyệt", "Từ chối duyệt"
+
+D. Xóa cuộc tranh chấp:
+Luồng thực hiện:
+- Chọn cuộc tranh chấp
+- Click "Xóa"
+- Popup confirm hiện ra
+- Xác nhận → Xóa mềm (update flag database)
+
+Quy tắc:
+- Frontend chỉ hiển thị action Xóa với cuộc tranh chấp có trạng thái "Tạo mới"
+
+E. Gửi phê duyệt:
+Luồng thực hiện:
+- Chọn cuộc tranh chấp
+- Click "Gửi phê duyệt"
+- Chọn người phê duyệt
+- Xác nhận
+
+Quy tắc:
+- Check theo user đăng nhập để hiển thị form gửi duyệt tương ứng
+- User tạo từ Chi nhánh hoặc Trụ sở chính sẽ có form khác nhau
+
+4. TẠO MỚI CUỘC TRANH CHẤP
+
+4.1. Khởi tạo
+- Nút "Thêm mới": Hiển thị với user được quyền tạo cuộc tranh chấp
+- Click → đi vào luồng tạo mới
+
+4.2. Luồng tạo mới
+Bước 1: Vấn tin CIF
+- Điền và tìm kiếm chính xác theo mã CIF khách hàng
+- Mã CIF sẽ phân biệt KHCN (Khách hàng cá nhân) hoặc KHDN (Khách hàng doanh nghiệp)
+- Hiển thị thông tin trả ra tương ứng
+
+Xử lý kết quả:
+- Không tìm thấy CIF hoặc nhập sai → hiển thị màn hình empty và KHÔNG có nút "Tiếp tục"
+- Trả thông tin bị thiếu vài trường → hiển thị "-----" với các trường thiếu
+- Trả thiếu thông tin "Họ và tên" hoặc "Chi nhánh quản lý" → dừng luồng
+
+Bước 2: Chọn loại tranh chấp
+- Hình sự
+- Dân sự
+- Thi hành án
+- Khác
+
+Bước 3: Hiển thị form tạo mới
+- Form sẽ khác nhau tùy theo loại tranh chấp đã chọn
+
+Bước 4: Lưu
+- Tạo mới xong → trở về màn hình danh sách cuộc tranh chấp
+- Refresh lại màn hình
+- Lưu lịch sử thay đổi
+
+5. TẠO CUỘC TRANH CHẤP HÌNH SỰ
+
+5.1. Thông tin chung (Section 1)
+
+CN xử lý tranh chấp:
+- Lấy theo CIF từ màn trước
+- Không cho chỉnh sửa
+
+Tên khách hàng trong vụ án:
+- Lấy theo CIF từ màn trước
+- Không cho chỉnh sửa
+
+Trạng thái:
+- Call API lấy từ tham số hệ thống
+- Droplist
+
+Tên vụ việc:
+- Freetext
+- Tối đa 255 ký tự
+- Trim khoảng trắng đầu cuối
+- Bắt buộc nhập
+
+Liên quan đến hoạt động của BIDV:
+- Call API lấy từ tham số hệ thống
+- Mặc định null
+- Droplist
+
+Phân loại nợ đối với khách hàng liên quan đến vụ việc hình sự:
+- Call API lấy từ tham số hệ thống
+- Mặc định null
+- Droplist
+
+Tên khách hàng liên quan trong vụ án:
+- Click để tìm kiếm
+- Multi select
+- Hiển thị dạng tag (chip)
+
+Tư cách tham gia tố tụng của BIDV:
+- Call API lấy từ tham số hệ thống
+- Mặc định null
+- Droplist
+
+Giá trị tranh chấp liên quan đến BIDV trong vụ án:
+- Nhập số tiền
+- Phân tách bởi dấu phẩy
+- Các đơn vị tiền tệ: VND, USD
+
+Ngày phát sinh tranh chấp:
+- Datepicker
+- Bắt buộc
+
+Cán bộ BIDV bị khởi tố/bị can/truy tố/xét xử:
+- Radio button: Có/Không
+- Mặc định: Không
+- Chỉ chọn 1
+
+5.2. Khoản vay, Tài sản, Dư nợ (Section 2)
+- Mặc định Expand (mở rộng)
+- Để trống 1 dòng ban đầu
+- Click nút "Đồng bộ từ corebanking" → Call API và đổ dữ liệu vào bảng
+- Only view (chỉ xem, không chỉnh sửa)
+
+5.3. Diễn biến (Section 3)
+- Cho phép nhập thông tin diễn biến
+- Validate chi tiết trong US tạo (User Story tạo)
+- Textarea, có thể nhập nhiều dòng
+
+5.4. Tài liệu đính kèm (Section 4)
+Cấu hình file:
+- Định dạng cho phép: *.pdf, *.xlsx, *.docx
+- Tối đa 20MB/1 file
+
+Giao diện:
+- Mặc định expand, để trống 1 dòng
+- Nút "Thêm tệp đính kèm": Tạo thêm 1 dòng trống mới
+- Click nút "Xóa" để xóa dòng
+- Nút "Tải toàn bộ tài liệu đính kèm": Tải toàn bộ file đã tải lên về máy của người dùng
+
+Các trường thông tin:
+Loại tài liệu:
+- Call API, lấy theo cấu hình tham số
+- Droplist
+
+Số quyết định:
+- Input text
+- Không bắt buộc
+
+Ngày ban hành:
+- Datepicker
+- Không bắt buộc
+
+Trạng thái:
+- Call API, lấy theo cấu hình tham số
+- Droplist
+
+Tệp đính kèm:
+- Click nút "Chọn tệp đính kèm" → Mở hộp thoại chọn file của hệ điều hành
+- Click tên file đã upload để tải về máy
+
+Nút xóa:
+- Click để xóa dòng tài liệu đính kèm này
+
+5.5. Nguồn gốc (Section 5)
+- Nhập mã CIF khách hàng để tìm kiếm các cuộc tranh chấp của CIF này
+- Only view (chỉ xem)
+- Cho chọn nhiều cuộc tranh chấp cũ
+- Fill data vào bảng
+- Click "Xóa" để xóa thông tin
+
+6. TẠO CUỘC TRANH CHẤP KHÁC (DÂN SỰ/THI HÀNH ÁN)
+Tương tự Hình sự, với các điểm khác:
+
+Bỏ mục:
+- "Cán bộ BIDV bị khởi tố/bị can/truy tố/xét xử"
+
+Thêm mục:
+Loại tranh chấp:
+- Dân sự (mặc định)
+- Khác
+- Radio button
+
+Thông tin thu hồi:
+- Tại mục "Số tiền đã thu hồi được trong vụ án"
+- Chia 4 cột nhỏ:
+  * Số tiền thu hồi được (VND)
+  * Số tiền thu hồi được (USD)
+  * Ngày thu hồi
+  * Ghi chú
+
+7. GỬI PHÊ DUYỆT - QUY TRÌNH CHI TIẾT
+
+7.1. Điều kiện tiên quyết
+- Cuộc tranh chấp có trạng thái "Tạo mới" hoặc "Từ chối duyệt"
+- User đăng nhập có quyền QLTC_CREATE
+
+7.2. Luồng gửi phê duyệt
+
+Bước 1: User click chọn cuộc tranh chấp
+- Tại màn hình danh sách cuộc tranh chấp
+- Click chọn 1 cuộc tranh chấp
+- Click nút "Gửi phê duyệt"
+
+Bước 2: Kiểm tra thông tin chi nhánh phụ trách
+
+Trường hợp 1: Đơn vị phụ trách thuộc TSC (Trụ sở chính)
+Mã đơn vị: BIDV110 hoặc BIDV110B304 hoặc BIDV110C231
+
+Hiển thị popup với các trường:
+
+Phòng ban:
+- Droplist
+- Trung tâm xử lý nợ (BIDV110B304)
+- Ban pháp chế (BIDV110C231)
+- Mặc định hiển thị tương ứng với mã đơn vị phụ trách của tranh chấp
+- Nếu không phải 2 mã này → hiển thị mặc định là Ban pháp chế
+
+Người phê duyệt:
+- Call API lấy danh sách: /bidv_gstd_api/v1/dispute/user-approval/get-list
+- Droplist
+
+Điều kiện lọc danh sách người phê duyệt (Trường hợp TSC):
+- User có mã đơn vị trùng với mã đơn vị đã chọn trên FE:
+  * qltc_user.department_code = 'BIDV110B304' hoặc 'BIDV110C231'
+
+- User có vị trí trong Ban Giám đốc:
+  * employee_level_point in (55, 65, 75, 85, 97)
+
+Trường hợp 2: Đơn vị phụ trách là Chi nhánh
+Mã đơn vị: Khác các mã của TSC
+
+Call API lấy danh sách người phê duyệt: /bidv_gstd_api/v1/dispute/user-approval/get-list
+
+Hiển thị danh sách người phê duyệt trực tiếp (không có dropdown Phòng ban)
+
+Điều kiện lọc danh sách người phê duyệt (Trường hợp Chi nhánh):
+- User có mã đơn vị thuộc cùng chi nhánh:
+  * qltc_user.org_code = branch_code
+
+- User thuộc phòng quản lý rủi ro:
+  * qltc_user.employee_level_details có chứa: "quản lý rủi ro" hoặc "QLRR" (không phân biệt hoa thường)
+
+- User có vị trí trưởng phòng:
+  * qltc_user.employee_level_point = 55
+
+Bước 3: Chọn thông tin và gửi
+- Chọn các thông tin cần thiết
+- Click button "Gửi người duyệt"
+
+Bước 4: Xử lý sau khi gửi
+- Call API gửi phê duyệt
+- Update qltc_disputes.user_approval
+- Gửi email đến người duyệt được chỉ định
+
+Nội dung email gửi phê duyệt:
+- Subject: Cuộc tranh chấp {disputes.name} đang chờ phê duyệt
+- Body: Vui lòng truy cập chương trình Quản lý tranh chấp và tiến hành phê duyệt
+
+- Đóng popup
+- Refresh lại màn hình danh sách cuộc tranh chấp
+
+8. PHÊ DUYỆT / TỪ CHỐI CUỘC TRANH CHẤP
+
+8.1. Luồng phê duyệt
+
+Bước 1: User duyệt truy cập
+- Tại màn hình danh sách cuộc tranh chấp
+- User duyệt click chọn cuộc tranh chấp
+- Bấm "Phê duyệt" hoặc "Từ chối"
+
+Bước 2: Hiện popup confirm
+Popup có 2 lựa chọn:
+
+Nút "Hủy":
+- Đóng popup
+- Về lại màn danh sách cuộc tranh chấp
+- KHÔNG refresh màn hình
+
+Nút "Xác nhận":
+- Call API Duyệt hoặc Từ chối
+- Cập nhật trạng thái cuộc tranh chấp:
+  * Phê duyệt → Trạng thái = "Đã phê duyệt"
+  * Từ chối → Trạng thái = "Từ chối duyệt"
+- Gửi mail thông báo
+- Refresh màn hình danh sách
+
+8.2. Email thông báo phê duyệt
+Đối tượng nhận: Người bấm phê duyệt, người tạo cuộc tranh chấp
+
+Subject: Cuộc tranh chấp {disputes.name} đã được {tên người duyệt} phê duyệt
+
+Body: Vui lòng xem chi tiết tại chương trình Quản lý tranh chấp
+
+8.3. Email thông báo từ chối
+Đối tượng nhận: Người bấm từ chối, người tạo cuộc tranh chấp
+
+Subject: Cuộc tranh chấp {disputes.name} đã được {tên người duyệt} từ chối
+
+Body: Vui lòng xem chi tiết tại chương trình Quản lý tranh chấp
+
+9. CHUYỂN ĐƠN VỊ PHỤ TRÁCH
+
+9.1. Luồng chuyển đơn vị
+- User thao tác: Click "Chuyển đơn vị phụ trách"
+- Chọn đơn vị phụ trách mới từ droplist
+- Click Submit
+- Update thông tin "CN xử lý tranh chấp" trong màn hình chi tiết
+
+9.2. Email thông báo chuyển đơn vị
+Đối tượng nhận:
+- Nếu chuyển về TSC (Ban Pháp chế/Trung tâm xử lý nợ): Gửi mail đến Ban giám đốc
+- Nếu chuyển về Chi nhánh: Gửi mail đến Trưởng phòng Phòng Quản lý rủi ro
+
+Subject: Cuộc tranh chấp {disputes.name} đã được chuyển đến {dispute.branch} tiếp nhận
+
+Body: Vui lòng cập nhật đầy đủ diễn biến cuộc tranh chấp
+
+10. BÁO CÁO
+
+10.1. Các loại báo cáo
+Xuất báo cáo 1 trong 3 loại:
+- Báo cáo tổng hợp
+- Báo cáo Hình sự
+- Báo cáo Khác (Dân sự/Thi hành án)
+
+10.2. Quy tắc xuất báo cáo
+- Báo cáo tải xuống dạng *.xlsx
+- Lấy danh sách các bản ghi có trạng thái "Đã duyệt"
+- Template báo cáo theo cấu trúc chuẩn
+
+11. DASHBOARD
+
+11.1. Mục đích
+Hiển thị thống kê tổng quan về cuộc tranh chấp
+
+11.2. Dữ liệu hiển thị
+- Lấy danh sách các bản ghi có trạng thái "Đã duyệt"
+- Thống kê theo:
+  * Loại tranh chấp
+  * Trạng thái xử lý
+  * Chi nhánh
+  * Thời gian
+
+========================================
+PHẦN 5: TỔNG HỢP RULE NGHIỆP VỤ QUAN TRỌNG
+========================================
+
+1. RULE CHUNG
+
+1.1. Phân quyền
+- Mọi chức năng đều phải kiểm tra quyền trước khi truy cập
+- Admin hệ thống có full quyền
+- User thường có quyền hạn chế theo role được gán
+
+1.2. Tìm kiếm
+- Hỗ trợ tìm kiếm gần đúng
+- Không phân biệt chữ hoa/thường
+- Có thể nhập một phần để hệ thống gợi ý
+- Không nhập tiêu chí → hiển thị toàn bộ
+
+1.3. Trạng thái
+- Hiệu lực: Đang hoạt động, được phép sử dụng
+- Hết hiệu lực: Không còn sử dụng nhưng vẫn lưu để tra cứu, báo cáo
+
+1.4. Mã định danh
+- Mọi mã đều phải duy nhất trong phạm vi quản lý
+- Không được trùng lặp
+- Hệ thống kiểm tra trước khi lưu
+
+1.5. Lịch sử thay đổi
+- Mọi thao tác quan trọng đều phải lưu lịch sử
+- Ghi nhận: Người thực hiện, Thời gian, Trường dữ liệu, Nội dung cũ, Nội dung mới
+
+2. RULE QUẢN LÝ NGƯỜI DÙNG
+
+2.1. Mã cán bộ
+- Là duy nhất trong toàn hệ thống
+- Không được trùng lặp
+
+2.2. Email
+- Phải theo định dạng hợp lệ: xxx@xxx.xxx
+- Kiểm tra format trước khi lưu
+
+2.3. Phân nhóm
+- Mỗi cán bộ có thể thuộc về một hoặc nhiều nhóm
+- Hiển thị: Nhóm 1, Nhóm 2 (nếu thuộc nhiều nhóm)
+
+3. RULE NHÓM ĐỊNH GIÁ
+
+3.1. Dữ liệu bắt buộc
+- Trung tâm định giá: Bắt buộc
+- Mã nhóm định giá: Bắt buộc, duy nhất
+- Tên nhóm định giá: Bắt buộc, tối đa 255 ký tự
+- Điều kiện tự động chuyển hồ sơ: Bắt buộc, ít nhất 1 điều kiện
+- Thành viên: Bắt buộc, ít nhất 1 thành viên
+
+3.2. Xóa nhóm định giá
+- Kiểm tra trước khi xóa: Có hồ sơ đang xử lý không?
+- Nếu có → Không cho xóa, thông báo: "Có hồ sơ đang xử lý ở nhóm định giá nên không thể xoá nhóm, vui lòng kiểm tra lại"
+- Nếu không có → Cho phép xóa (xóa mềm)
+
+4. RULE ĐƯỜNG/PHỐ
+
+4.1. Mã và Tên
+- Mã Đường/Phố: Duy nhất, không trùng lặp
+- Tên Đường/Phố: Bắt buộc, tối đa 255 ký tự
+- Kiểm tra trùng lặp trong cùng Quận/Huyện
+
+4.2. Nhập từ Excel
+- So trùng "không dấu + lowercase + gộp khoảng trắng" trong phạm vi cha
+- Kiểm tra ràng buộc: Phường/xã phải thuộc Quận/huyện đúng
+- Bắt buộc tồn tại Tỉnh/TP, Quận/Huyện, Phường/Xã
+- Hỗ trợ alias tự động để mapping
+
+5. RULE CUỘC TRANH CHẤP
+
+5.1. Trạng thái cho phép chỉnh sửa
+- Tạo mới: Có thể chỉnh sửa toàn bộ
+- Từ chối duyệt: Có thể chỉnh sửa và gửi lại
+- Đã phê duyệt: Có thể chỉnh sửa nhưng sẽ chuyển về trạng thái "Tạo mới"
+
+5.2. Trạng thái cho phép xóa
+- Chỉ có thể xóa cuộc tranh chấp ở trạng thái "Tạo mới"
+
+5.3. Trạng thái cho phép chuyển đơn vị
+- Tạo mới
+- Đã duyệt
+- Từ chối duyệt
+
+5.4. Tài liệu đính kèm
+- Định dạng: *.pdf, *.xlsx, *.docx
+- Kích thước: Tối đa 20MB/1 file
+- Validate trước khi upload
+
+5.5. Vấn tin CIF
+- Không tìm thấy hoặc sai CIF → Dừng luồng
+- Thiếu "Họ và tên" hoặc "Chi nhánh quản lý" → Dừng luồng
+
+5.6. Gửi phê duyệt
+- Chi nhánh → Người duyệt: Trưởng phòng QLRR của chi nhánh đó
+- TSC → Người duyệt: Ban Giám đốc của BPC/TTXLN
+
+========================================
+KẾT THÚC TÀI LIỆU
+========================================
