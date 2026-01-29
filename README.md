@@ -1,3 +1,4 @@
+# Readme.md
 # RAG Pipeline - Hệ thống Tra cứu Nghiệp vụ
 
 Hệ thống trả lời câu hỏi tự động về Quản lý Nghiệp vụ sử dụng RAG (Retrieval-Augmented Generation) với Gemini 2.5 Flash.
@@ -114,31 +115,30 @@ Assignment2_NamKhanh/
 
 ### Quản lý người dùng
 ```
-1. Chức năng quản lý người dùng là gì?
-2. Rule nghiệp vụ của quản lý người dùng?
-3. Cách xuất danh sách người dùng ra Excel?
+1. Các hạng mục trong màn hình quản lý người dùng?
+2. Luồng thực hiện của nghiệp vụ Quản lý người dùng?
+3. Người dùng có thể tìm kiếm theo những tiêu chí nào?
 ```
 
-### Nhóm định giá
+### Danh mục nhóm định giá
 ```
-1. Điều kiện để thêm mới nhóm định giá?
-2. Khi nào không thể xóa nhóm định giá?
-3. Thông tin nào bắt buộc khi tạo nhóm?
-```
-
-### Đường/Phố
-```
-1. Rule nghiệp vụ khi nhập đường phố từ Excel?
-2. Cách xử lý khi trùng lặp đường phố?
-3. Alias tự động là gì?
+1. Các hạng mục trong màn hình Danh mục nhóm định giá?
+2. Luồng thực hiện của nghiệp vụ Thêm mới/Chỉnh sửa nhóm định giá?
+3. Rule nghiệp vụ về dữ liệu hiển thị trong Danh mục nhóm định giá?
 ```
 
-### Tranh chấp
+### Quản lý đường/phố
 ```
-1. Quy trình gửi phê duyệt cuộc tranh chấp?
-2. Trạng thái nào cho phép chỉnh sửa?
-3. Điều kiện vấn tin CIF khi tạo cuộc tranh chấp?
-4. Email được gửi đến ai khi chuyển đơn vị?
+1. Các hạng mục trong màn hình Quản lý đường phố?
+2. Luồng thực hiện của nghiệp vụ Quản lý đường phố?
+3. Rule nghiệp vụ về tìm kiếm và dữ liệu hiển thị trong Đường/Phố?
+```
+
+### Quản lý tranh chấp
+```
+1. Luồng thực hiện của nghiệp vụ Gửi phê duyệt, phê duyệt, từ chối cuộc tranh chấp
+2. Luồng nghiệp vụ tổng quan của Tính năng quản lý tranh chấp
+3. So sánh luồng nghiệp vụ "Danh mục Nhóm định giá" và "Thêm mới/Chỉnh sửa Nhóm định giá"
 ```
 
 ## 🐛 Xử lý lỗi
@@ -182,7 +182,7 @@ Trong Streamlit UI, dùng slider "Temperature" (0.0 - 1.0)
 
 ## 🎯 Độ chính xác
 
-Dựa trên evaluate.py với 7 câu hỏi test:
+Dựa trên evaluate.py với câu hỏi test:
 - **Mục tiêu**: ≥ 80% keyword match
 - **Thời gian phản hồi**: < 3s/câu hỏi
 

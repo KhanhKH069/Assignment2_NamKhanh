@@ -31,27 +31,40 @@ if __name__ == "__main__":
     pipeline = RAGPipeline(data_path="data/input.txt")
     evaluator = RAGEvaluator(pipeline)
     
+    # Câu hỏi test dựa trên file Câu_hỏi_mẫu.xlsx
     qa_test_set = [
-        ("Chức năng quản lý người dùng là gì?", 
-         ["tìm kiếm", "xuất Excel", "phân nhóm", "phân quyền"]),
+        # Câu hỏi DỄ
+        ("Các hạng mục trong màn hình quản lý người dùng?", 
+         ["STT", "Mã cán bộ", "Tên cán bộ", "Email", "Đơn vị", "Phòng ban", "Phân nhóm"]),
         
-        ("Điều kiện để thêm mới nhóm định giá là gì?",
+        ("Các hạng mục trong màn hình Danh mục nhóm định giá?",
+         ["STT", "Trung tâm định giá", "Mã đơn vị", "Mã nhóm", "Tên nhóm", "Ghi chú", "Điều kiện", "Trạng thái"]),
+        
+        ("Các hạng mục trong màn hình Quản lý đường phố?",
+         ["STT", "Mã Đường", "Tên Đường", "Quận", "Huyện", "Trạng thái"]),
+        
+        ("Các hạng mục trong màn hình Thêm mới/Chỉnh sửa nhóm định giá?",
          ["Trung tâm định giá", "Mã nhóm", "Tên nhóm", "Điều kiện", "Thành viên"]),
         
-        ("Khi nào không thể xóa nhóm định giá?",
-         ["hồ sơ đang xử lý", "không thể xoá", "kiểm tra"]),
+        # Câu hỏi TRUNG BÌNH
+        ("Luồng thực hiện của nghiệp vụ Thêm mới/Chỉnh sửa nhóm định giá?",
+         ["Khởi tạo", "Tìm kiếm", "Thêm mới", "Lưu", "Cập nhật"]),
         
-        ("Rule nghiệp vụ khi nhập đường phố từ Excel là gì?",
-         ["không dấu", "lowercase", "ràng buộc", "alias"]),
+        ("Luồng thực hiện của nghiệp vụ Quản lý đường phố?",
+         ["Khởi tạo", "Tìm kiếm", "Tab", "Thêm mới", "Xuất Excel"]),
         
-        ("Quy trình gửi phê duyệt cuộc tranh chấp như thế nào?",
-         ["Chi nhánh", "Trụ sở chính", "người duyệt", "email"]),
+        ("Luồng thực hiện của nghiệp vụ Quản lý người dùng?",
+         ["Khởi tạo", "Nhập tiêu chí", "Tìm kiếm", "Hiển thị", "Danh sách"]),
         
-        ("Trạng thái nào cho phép chỉnh sửa cuộc tranh chấp?",
-         ["Tạo mới", "Từ chối duyệt", "Đã phê duyệt"]),
+        # Câu hỏi KHÓ
+        ("Luồng thực hiện của nghiệp vụ Gửi phê duyệt, phê duyệt, từ chối cuộc tranh chấp",
+         ["gửi phê duyệt", "phê duyệt", "từ chối", "email", "trạng thái"]),
         
-        ("Điều kiện vấn tin CIF khi tạo cuộc tranh chấp?",
-         ["Họ và tên", "Chi nhánh quản lý", "KHCN", "KHDN"])
+        ("Luồng nghiệp vụ tổng quan của Tính năng quản lý tranh chấp",
+         ["tạo mới", "gửi duyệt", "phê duyệt", "từ chối", "luồng", "trạng thái"]),
+        
+        ("So sánh luồng nghiệp vụ \"Danh mục Nhóm định giá\" và \"Thêm mới/Chỉnh sửa Nhóm định giá\"",
+         ["Danh mục", "Thêm mới", "Chỉnh sửa", "khác nhau", "giống nhau", "luồng"])
     ]
     
     results = evaluator.evaluate_qa_pairs(qa_test_set)

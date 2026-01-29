@@ -31,32 +31,41 @@ st.sidebar.markdown("---")
 st.sidebar.markdown("### 📚 Câu hỏi mẫu")
 
 st.sidebar.markdown("**🔹 Quản lý người dùng:**")
-if st.sidebar.button("Chức năng quản lý người dùng?"):
-    st.session_state['question'] = "Chức năng quản lý người dùng là gì?"
+if st.sidebar.button("Các hạng mục trong màn hình?"):
+    st.session_state['question'] = "Các hạng mục trong màn hình quản lý người dùng?"
 
-if st.sidebar.button("Rule nghiệp vụ quản lý người dùng?"):
-    st.session_state['question'] = "Rule nghiệp vụ của quản lý người dùng là gì?"
+if st.sidebar.button("Luồng thực hiện nghiệp vụ?"):
+    st.session_state['question'] = "Luồng thực hiện của nghiệp vụ Quản lý người dùng?"
+
+if st.sidebar.button("Tiêu chí tìm kiếm người dùng?"):
+    st.session_state['question'] = "Người dùng có thể tìm kiếm theo những tiêu chí nào?"
 
 st.sidebar.markdown("**🔹 Nhóm định giá:**")
-if st.sidebar.button("Điều kiện thêm nhóm định giá?"):
-    st.session_state['question'] = "Điều kiện để thêm mới nhóm định giá là gì?"
+if st.sidebar.button("Hạng mục Danh mục nhóm định giá?"):
+    st.session_state['question'] = "Các hạng mục trong màn hình Danh mục nhóm định giá?"
 
-if st.sidebar.button("Khi nào không xóa được nhóm?"):
-    st.session_state['question'] = "Khi nào không thể xóa nhóm định giá?"
+if st.sidebar.button("Luồng Thêm mới/Chỉnh sửa?"):
+    st.session_state['question'] = "Luồng thực hiện của nghiệp vụ Thêm mới/Chỉnh sửa nhóm định giá?"
+
+if st.sidebar.button("Rule nghiệp vụ nhóm định giá?"):
+    st.session_state['question'] = "Rule nghiệp vụ về dữ liệu hiển thị trong Danh mục nhóm định giá?"
 
 st.sidebar.markdown("**🔹 Đường/Phố:**")
-if st.sidebar.button("Rule nhập đường phố từ Excel?"):
-    st.session_state['question'] = "Rule nghiệp vụ khi nhập đường phố từ Excel là gì?"
+if st.sidebar.button("Hạng mục Quản lý đường phố?"):
+    st.session_state['question'] = "Các hạng mục trong màn hình Quản lý đường phố?"
+
+if st.sidebar.button("Luồng nghiệp vụ đường phố?"):
+    st.session_state['question'] = "Luồng thực hiện của nghiệp vụ Quản lý đường phố?"
 
 st.sidebar.markdown("**🔹 Tranh chấp:**")
-if st.sidebar.button("Quy trình gửi phê duyệt?"):
-    st.session_state['question'] = "Quy trình gửi phê duyệt cuộc tranh chấp như thế nào?"
+if st.sidebar.button("Luồng Gửi phê duyệt?"):
+    st.session_state['question'] = "Luồng thực hiện của nghiệp vụ Gửi phê duyệt, phê duyệt, từ chối cuộc tranh chấp"
 
-if st.sidebar.button("Trạng thái nào cho phép chỉnh sửa?"):
-    st.session_state['question'] = "Trạng thái nào cho phép chỉnh sửa cuộc tranh chấp?"
+if st.sidebar.button("Tổng quan quản lý tranh chấp?"):
+    st.session_state['question'] = "Luồng nghiệp vụ tổng quan của Tính năng quản lý tranh chấp"
 
-if st.sidebar.button("Điều kiện vấn tin CIF?"):
-    st.session_state['question'] = "Điều kiện vấn tin CIF khi tạo cuộc tranh chấp?"
+if st.sidebar.button("So sánh Danh mục vs Thêm mới?"):
+    st.session_state['question'] = "So sánh luồng nghiệp vụ \"Danh mục Nhóm định giá\" và \"Thêm mới/Chỉnh sửa Nhóm định giá\""
 
 if 'history' not in st.session_state:
     st.session_state['history'] = []
@@ -67,7 +76,7 @@ with col1:
     question = st.text_input(
         "💬 Nhập câu hỏi của bạn:", 
         value=st.session_state.get('question', ''),
-        placeholder="VD: Quy trình gửi phê duyệt như thế nào?"
+        placeholder="VD: Các hạng mục trong màn hình quản lý người dùng?"
     )
 
 with col2:
